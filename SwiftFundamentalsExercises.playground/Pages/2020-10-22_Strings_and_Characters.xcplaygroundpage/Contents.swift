@@ -1,5 +1,5 @@
 import UIKit
-import Foundation
+
 /*
  Oct 22, 2020 Strings & Characters
  */
@@ -16,7 +16,7 @@ var numStr = ""
 for num in 1...10 {
     numStr = numStr + " " + String(num)
 }
-print("Numbers from 1-10: \(numStr) ")
+//print("Numbers from 1-10: \(numStr) ")
 
 //Question 2
 //Write code that prints out all the even numbers from 5 to 51 as a single string.
@@ -26,7 +26,7 @@ for number in 5...51 {
         evenNumbers.append(String(number) + ", ")
     }
 }
-print("Even numbers from 5...51 are: \(evenNumbers) ")
+//print("Even numbers from 5...51 are: \(evenNumbers) ")
 
 //Question 3
 //Write code that prints out every number ending in 4 between 1 and 60 as a single string.
@@ -38,20 +38,20 @@ for num in 1...60 {
     }
 }
 
-print("Numbers between 1-60 that ending in '4' are: \(numbersEndsWith4) ")
+//print("Numbers between 1-60 that ending in '4' are: \(numbersEndsWith4) ")
 //Question 4
 //Print each character in the string "Hello world!"
-var helloStr : String = "Hello world!"
-for char in helloStr {
-    print(char)
-}
+//var helloStr : String = "Hello world!"
+//for char in helloStr {
+//    print(char)
+//}
 
 //Question 5
 //Print out the last character in the string below. You cannot use the Character literal "!" (i.e you must access myStringSeven's characters).
 //
 let myStringSeven = "Hello world!"
 let lastCharIndex = myStringSeven[myStringSeven.index(before: myStringSeven.endIndex)]
-print(lastCharIndex)
+//print(lastCharIndex)
 
 /*
  Question 6
@@ -67,15 +67,55 @@ print(lastCharIndex)
  */
 
 func replaceChar(inputStr: String, replaceChar: String, withChar: String) -> String {
-    var resultStr = ""
+    var replacedString = ""
     
     for element in inputStr {
         if element == Character(replaceChar) {
-            resultStr.append(withChar)
+            replacedString.append(withChar)
         } else {
-            resultStr.append(element)
+            replacedString.append(element)
         }
     }
-    return resultStr
+    return replacedString
 }
-print(replaceChar(inputStr: "Pursuit", replaceChar: "u", withChar: "*"))
+//print(replaceChar(inputStr: "Pursuit", replaceChar: "u", withChar: "*"))
+
+//Question 7
+//You are given a string stored in variable aString. Create a new string called reverse that contains the original string in reverse order. Print the reversed string. You cannot used built-in reverse.
+
+let aString = "this string has 29 characters"
+var reverse = ""
+
+// Your code here
+//Example: Input: let aString = "Hello"
+//Output: "olleH"
+
+func reverseStr(in inputStr: String) -> String {
+    
+    for char in inputStr {
+        reverse = (String(char)) + reverse
+    }
+    return reverse
+}
+//print(reverseStr(in: aString))
+/*
+Question 8
+You are given a string stored in variable aString. Print true if aString is a palindrome, and false otherwise. A palindrome is a string which reads the same backward or forward.
+
+let str1 = "anutforajaroftuna"
+
+// Your code here
+Example 1: Input: let str1 = "anutforajaroftuna"
+Output: true
+
+Example 2: Input: let str2 = "Hello"
+Output: false
+ */
+func checkPalindrome (in inputStr: String) -> Bool {
+    var outputStr = ""
+    for letter in inputStr {
+        outputStr = String(letter) + outputStr
+    }
+    return outputStr == inputStr
+}
+checkPalindrome(in: "racecar")
