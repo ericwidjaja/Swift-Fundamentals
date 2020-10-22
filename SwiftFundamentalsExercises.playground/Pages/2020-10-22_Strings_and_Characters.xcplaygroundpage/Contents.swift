@@ -209,3 +209,165 @@ func howManyVowelsAndConsonants(in inputStr: String) -> String {
     return "There are \(String(vowelsCount)) vowels and \(String(consonantsCount)) consonants "
 }
 print(howManyVowelsAndConsonants(in: "Pursuit"))
+/*
+ Question 12
+ Given a string of words separated by a " ". Write code that prints out the length of the last word.
+ If there is no last word print out "No last word"
+ Example: Input: "How are you doing this Monday?"
+ */
+
+func lengthLastWord (in inputStr: String) -> Int {
+    if let lastWord = inputStr.split(separator: " ").last {
+        return lastWord.count
+    } else {
+        print("No last word")
+    }
+    return 0
+}
+//print(lengthLastWord(in: "How are you doing this Monday ?"))
+
+/*
+ Question 13
+ Given a string testString create a new variable called condensedString that has any consecutive spaces in testString replaced with a single space.
+ 
+ let testString = "  How   about      thesespaces  ?  "
+ var condensedString = ""
+ // Output: " How about thesespaces ? "
+ */
+
+let testString = "  How   about      thesespaces  ?  "
+var condensedString = ""
+var previousChar: Character = "🎯"
+
+for currentChar in testString {
+    if previousChar == " " && currentChar == " " {
+        continue
+    }
+    condensedString.append(currentChar)
+    previousChar = currentChar
+}
+//print(condensedString)
+/*
+ Question 14
+ Given a string with multiple words. Reverse the string word by word. You cannot use built-in reverese or swapAt.
+ 
+ Example:
+ 
+ Sample Input: "Swift is the best language"
+ Sample Output: "language best the is Swift"
+ */
+
+func reverseSentenceByWords (in inputSentence: String) -> String {
+    var reversedStr = ""
+    
+    for word in inputSentence.split(separator: " ") {
+        reversedStr = word + " " + reversedStr
+    }
+    return reversedStr
+}
+reverseSentenceByWords(in: "Swift is the best language")
+
+/*
+ Question 15
+ Given a string with multiple words. Write code that prints how many of them are palindromes.
+ 
+ Note: Feel free to use functions if you are already familiar with them.
+ 
+ Example:
+ Sample Input: "danaerys dad cat civic bottle"
+ Sample Output: 2
+ */
+
+
+let aSentence = "racecar danaerys dad cat civic rotator bottle "
+func howManyPalindromes (in aSentence: String) -> Int {
+    var numOfPalindromes = 0
+    
+    for word in aSentence.split(separator: " ") {
+        if checkPalindrome(in: String(word)) {
+            numOfPalindromes += 1
+        }
+    }
+    return numOfPalindromes
+}
+//print("There are \(howManyPalindromes(in: aSentence)) palindrome(s) ")
+/*
+ You are given a string representing an attendance record for a student. The record only contains the following three characters:
+
+ 'A' : Absent.
+
+ 'L' : Late.
+
+ 'P' : Present.
+
+ If a student has more than one 'A' or more than 2 continuous 'L's that student should not be rewarded. Print true if student is to be rewarded and False if they shouldn't.
+
+ Example:
+ Sample Input: "PPALLP"
+ Sample Output: true
+ */
+
+let attendanceRecord = "PPPLALLP"
+func shouldStudentRewarded(base attendanceRecord: String) -> Bool {
+    var absentCounter = 0
+    var lateCounter = 0
+    var shouldRewarded = true
+    var previousChar: Character = "*"
+    
+    for char in attendanceRecord {
+        if char == "A" {
+            absentCounter += 1
+            if absentCounter > 1 {
+                shouldRewarded = false
+                break
+            }
+        }
+        if char == "L" {
+            lateCounter += 1
+            if previousChar == "L" {
+                if lateCounter > 2 {
+                    shouldRewarded = false
+                    break
+                }
+            }
+        } else {
+            lateCounter = 0
+        }
+        previousChar = char
+        }
+    print("absent: \(absentCounter) ")
+    print("late : \(lateCounter) ")
+    return shouldRewarded
+}
+shouldStudentRewarded(base: attendanceRecord)
+/*
+ Question 17
+ Given a tuple with two strings. The first string is a ransom note, the second string being the characters from a magazine. Determine whether or not you can construct the ransom note using the characters from the magazine.
+
+ Each letter from the magazine can only be used once. You can assume all letters are lowercased.
+
+ Examples:
+ Sample Input1: ("a", "b")
+ Sample Output1: False
+ Sample Input2: ("aa", "aab")
+ Sample Output2: True
+ */
+
+var ransomLetter = "abcde"
+var magzArticle = "ebcda"
+var canMakeRansomNote = false
+
+func createRansomNote (from magazine: String, ransomNote: String) -> Bool {
+    if ransomLetter.count <= magzArticle.count {
+        for letter in ransomLetter {
+            if magzArticle.contains(letter) {
+                canMakeRansomNote = true
+            }
+        }
+    } else {
+        print("Ransom Note can NOT be made")
+        canMakeRansomNote = false
+    }
+    return canMakeRansomNote
+}
+createRansomNote(from: magzArticle, ransomNote: ransomLetter)
