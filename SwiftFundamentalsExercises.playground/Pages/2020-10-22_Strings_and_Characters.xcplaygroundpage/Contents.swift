@@ -52,3 +52,30 @@ for char in helloStr {
 let myStringSeven = "Hello world!"
 let lastCharIndex = myStringSeven[myStringSeven.index(before: myStringSeven.endIndex)]
 print(lastCharIndex)
+
+/*
+ Question 6
+ You are given a string stored in the variable aString. Create new string named replacedString that contains the characters of the original string with all the occurrences of the character "e" replaced by "*".
+
+ var aString = "Replace the letter e with *"
+ // Your code here
+ Example:
+
+ Input: let aString = "Replace the letter e with *"
+
+ Expected values: replacedString = "R*plac* th* l*tt*r * with *"
+ */
+
+func replaceChar(inputStr: String, replaceChar: String, withChar: String) -> String {
+    var resultStr = ""
+    
+    for element in inputStr {
+        if element == Character(replaceChar) {
+            resultStr.append(withChar)
+        } else {
+            resultStr.append(element)
+        }
+    }
+    return resultStr
+}
+print(replaceChar(inputStr: "Pursuit", replaceChar: "u", withChar: "*"))
