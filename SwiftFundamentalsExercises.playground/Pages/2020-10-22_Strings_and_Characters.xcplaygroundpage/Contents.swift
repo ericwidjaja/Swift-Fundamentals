@@ -6,7 +6,7 @@ import UIKit
 let str = "Welcome to Swift"
 /*
  ============================================================================================
-                                        EXERCISES
+ EXERCISES
  ============================================================================================
  */
 
@@ -56,13 +56,13 @@ let lastCharIndex = myStringSeven[myStringSeven.index(before: myStringSeven.endI
 /*
  Question 6
  You are given a string stored in the variable aString. Create new string named replacedString that contains the characters of the original string with all the occurrences of the character "e" replaced by "*".
-
+ 
  var aString = "Replace the letter e with *"
  // Your code here
  Example:
-
+ 
  Input: let aString = "Replace the letter e with *"
-
+ 
  Expected values: replacedString = "R*plac* th* l*tt*r * with *"
  */
 
@@ -99,17 +99,17 @@ func reverseStr(in inputStr: String) -> String {
 }
 //print(reverseStr(in: aString))
 /*
-Question 8
-You are given a string stored in variable aString. Print true if aString is a palindrome, and false otherwise. A palindrome is a string which reads the same backward or forward.
-
-let str1 = "anutforajaroftuna"
-
-// Your code here
-Example 1: Input: let str1 = "anutforajaroftuna"
-Output: true
-
-Example 2: Input: let str2 = "Hello"
-Output: false
+ Question 8
+ You are given a string stored in variable aString. Print true if aString is a palindrome, and false otherwise. A palindrome is a string which reads the same backward or forward.
+ 
+ let str1 = "anutforajaroftuna"
+ 
+ // Your code here
+ Example 1: Input: let str1 = "anutforajaroftuna"
+ Output: true
+ 
+ Example 2: Input: let str2 = "Hello"
+ Output: false
  */
 func checkPalindrome (in inputStr: String) -> Bool {
     var outputStr = ""
@@ -123,14 +123,14 @@ func checkPalindrome (in inputStr: String) -> Bool {
 /*
  Question 9
  You are given a string stored in variable problem. Write code so that you print each word of the string on a new line.
-
+ 
  let problem = "split this string into words and print them on separate lines"
-
+ 
  // Your code
  Example: Input: let problem ="split this string into words and print them on separate lines"
-
+ 
  Output:
-
+ 
  split
  this
  string
@@ -159,9 +159,9 @@ func splitStr (inputStr: String, separatorChar: Character) -> String {
  
  Question 10
  You are given a string stored in variable problem. Write code that prints the longest word in the string.
-
+ 
  let problem = "find the longest word in the problem description"
-
+ 
  // Your code here
  Example: Input: let problem = "find the longest word in the problem description"
  Output: description
@@ -185,7 +185,7 @@ findLongestWord(in: problemLong)
 /*
  Question 11
  Given a string in English, create a tuple containing the number of vowels and consonants.
-
+ 
  let vowels = "aeiou"
  let consonants = "bcdfghjklmnpqrstvwxyz"
  let input = "Count how many vowels I have!"
