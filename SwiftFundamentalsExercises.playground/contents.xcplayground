@@ -5,5 +5,7 @@
         <page name='2020-10-15_Basics'/>
         <page name='2020-10-22_Strings_and_Characters'/>
         <page name='2020-10-29_CollectionTypes_Arrays'/>
+        <page name='2020-10-29_CollectionTypes_Dictionary'/>
+        <page name='2020-11-05_Dictionary_Exercise'/>
     </pages>
 </playground>
