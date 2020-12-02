@@ -371,3 +371,17 @@ func createRansomNote (from magazine: String, ransomNote: String) -> Bool {
     return canMakeRansomNote
 }
 createRansomNote(from: magzArticle, ransomNote: ransomLetter)
+
+
+var str1 = "babc"
+var str2 = "abc"
+var temp = ""
+
+for char in str1 {
+    if str2.contains(char) {
+        str2.remove(at: str2.firstIndex(of: char) ?? str2.endIndex)
+    } else {
+        print("The Strings don't match")
+        break
+    }
+}
