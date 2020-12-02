@@ -4,5 +4,6 @@
         <page name='SwiftDocumentation'/>
         <page name='2020-10-15_Basics'/>
         <page name='2020-10-22_Strings_and_Characters'/>
+        <page name='2020-10-29_CollectionTypes_Arrays'/>
     </pages>
 </playground>
