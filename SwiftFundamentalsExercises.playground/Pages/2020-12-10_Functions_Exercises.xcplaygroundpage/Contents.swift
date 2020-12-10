@@ -6,6 +6,7 @@ import Foundation
 
 //https://www.youtube.com/watch?v=E3lmXVUdj38&feature=youtu.be
 //https://docs.swift.org/swift-book/LanguageGuide/Functions.html
+//https://github.com/alexpaul/Swift-Fundamentals/blob/main/Functions.md
 
 /*
  Question 1.
@@ -129,7 +130,98 @@ average(of: [1.5, 2.25, 4.5, -1.5])
 
  Question 7
 
+ Write a function named frequencyDictionary(of:) that takes a String as input and returns a dictionary that maps each Character to its number of occurrances.
+
+ // input: "hello"
+ // output: ["h": 1, "e": 1, "l": 2, "o": 1]
+
+ // input: "aaaaaAAA"
+ // output: ["a": 5, "A":3]
+
+ // input: "More words"
+ // output: ["M": 1, "o": 2, "r": 2, "e": 1, " ": 1, "w": 1, "d": 1, "s": 1]
  
-*/
+func frequencyDictionary(of wordsString: String) -> [Character: Int] {
+    var charsDict = [Character: Int]()
+    for char in wordsString {
+        if let charCount = charsDict[char] {
+            charsDict[char] = charCount + 1
+        } else {
+            charsDict[char] = 1
+        }
+    }
+    return charsDict
+}
+print(frequencyDictionary(of: "More words"))
+// =====================================================================================
+Question 8.
+Write a function named value(_:isGreaterThanAverageOf:) that takes in an array of Doubles and a Double and returns whether the Double is greater than the average.
+
+// input: 4.0, [1.0,2,3,4,5]
+// output: true
+
+// input: 3, [1,2,3,4,5]
+// output: false
+
+// input: 100.8, [1,42,1,541,42,5]
+// output: false
 
 // =====================================================================================
+
+func value(_ num: Double, isGreaterThanAverageOf numArr: [Double]) -> Bool {
+    
+    let average = numArr.reduce(0.0, +) / Double(numArr.count)
+    print("the number is  : \(num)")
+    print("the average is : \(average)")
+    let result = num > average ? true : false
+    print(result)
+    return result
+}
+
+value(100.08, isGreaterThanAverageOf: [1,42,1,541,42,5])
+ 
+ // =====================================================================================
+ Question 9.
+ Write a function that finds the second smallest Int an an array of Ints
+
+ // input: [1, 2, 3, 4]
+ // output: 2
+
+ // input: [2, 1, 3, 4]
+ // output: 2
+func secondSmallestInt(in IntArr: [Int]) -> Int {
+    let sortedIntArr = IntArr.sorted()
+    print("sorted  array  = \(sortedIntArr)")
+    print("secondSmallestInt = \(sortedIntArr[1])")
+    return sortedIntArr[1]
+}
+secondSmallestInt(in: [-2, 1, 3, 4])
+ 
+// =====================================================================================
+ Question 10.
+ Write a program that outputs the string representation of numbers from 1 to n.
+
+ But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+ */
+
+func fizzBuzz (withRangeUpTo n: Int) -> [String] {
+    
+    var resultStr = [String]()
+    for num in 1...n {
+        if num % 3 == 0 && num % 5 == 0 {
+            resultStr.append("FizzBuzz")
+        }
+        else if num % 3 == 0 {
+            resultStr.append("Fizz")
+        }
+        else if num % 5 == 0 {
+            resultStr.append("Buzz")
+        } else {
+            resultStr.append(num.description)
+        }
+    }
+    return resultStr
+}
+print(fizzBuzz(withRangeUpTo: 9))
+// =====================================================================================
+
