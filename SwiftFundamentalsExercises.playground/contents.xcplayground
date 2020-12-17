@@ -12,5 +12,6 @@
         <page name='2020-11-19_ControlFlow_Exercise'/>
         <page name='2020-12-03_Optionals_Exercises'/>
         <page name='2020-12-10_Functions_Exercises'/>
+        <page name='2020-12-17_Closure_Exercises'/>
     </pages>
 </playground>

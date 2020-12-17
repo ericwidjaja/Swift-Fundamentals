@@ -140,21 +140,24 @@ average(of: [1.5, 2.25, 4.5, -1.5])
 
  // input: "More words"
  // output: ["M": 1, "o": 2, "r": 2, "e": 1, " ": 1, "w": 1, "d": 1, "s": 1]
- 
+ */
+
 func frequencyDictionary(of wordsString: String) -> [Character: Int] {
-    var charsDict = [Character: Int]()
+    var freqDict = [Character: Int]()
+    //"hello"
     for char in wordsString {
-        if let charCount = charsDict[char] {
-            charsDict[char] = charCount + 1
+        if let count = freqDict[char] {
+            freqDict[char] = count + 1
         } else {
-            charsDict[char] = 1
+            freqDict[char] = 1
         }
     }
-    return charsDict
+    return freqDict
 }
-print(frequencyDictionary(of: "More words"))
+print(frequencyDictionary(of: "hello"))
+   
 // =====================================================================================
-Question 8.
+/*Question 8.
 Write a function named value(_:isGreaterThanAverageOf:) that takes in an array of Doubles and a Double and returns whether the Double is greater than the average.
 
 // input: 4.0, [1.0,2,3,4,5]
@@ -167,7 +170,7 @@ Write a function named value(_:isGreaterThanAverageOf:) that takes in an array o
 // output: false
 
 // =====================================================================================
-
+*/
 func value(_ num: Double, isGreaterThanAverageOf numArr: [Double]) -> Bool {
     
     let average = numArr.reduce(0.0, +) / Double(numArr.count)
@@ -179,6 +182,7 @@ func value(_ num: Double, isGreaterThanAverageOf numArr: [Double]) -> Bool {
 }
 
 value(100.08, isGreaterThanAverageOf: [1,42,1,541,42,5])
+/*
  
  // =====================================================================================
  Question 9.
