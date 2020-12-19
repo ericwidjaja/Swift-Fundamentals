@@ -147,3 +147,50 @@ let lowercasedNames = recreateMap(names) { (upperCaseNames) -> String in
 }
 
 print(lowercasedNames)
+
+
+// Question 4
+// Write a function that takes an integer and an unsorted array of Ints
+// and returns true if there's any pair of numbers in that array that can be
+// summed up to the input integer.
+// ex: inputSum([1,3,5,4,2], 7) should return true
+// ex: inputSum([1,3,5,4,2], 2) should return false
+
+func inputSum( _ arr: [Int], _ targetInt: Int) -> Bool {
+    var hitTargetedInt = false
+    
+    for i in 0..<arr.count {
+        for j in 1..<arr.count {
+            if arr[i] + arr [j] == targetInt {
+                hitTargetedInt = true
+            }
+        }
+    }
+    return hitTargetedInt
+}
+inputSum([1,3,5,4,2], 7)
+
+// Question 5
+// Implement a function that accepts an array of integers as an argument.
+// This function should return the sum of all integers in the array.
+// Your solution should be **recursive**.
+// ex: recursiveSum([1,2,3,4,5]) //should return 15
+
+//func recursiveSum( _ input: [Int]) -> Int {
+//    var sum = 0
+//    if input.count > 0 {
+//        for num in input {
+//            sum += num
+//        }
+//    }
+//    return sum
+//}
+//
+//recursiveSum([1,2,3,4])
+func recursiveSum( _ input: [Int]) -> Int {
+        guard !input.isEmpty else {return 0}
+        var newNumArr = input
+        let sum = newNumArr.remove(at: 0)
+        return sum + recursiveSum(newNumArr)
+    }
+recursiveSum([1,2])
