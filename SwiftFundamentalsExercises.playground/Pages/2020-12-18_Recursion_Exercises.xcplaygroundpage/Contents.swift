@@ -17,6 +17,13 @@ func countUpToTwenty(from currentNum: Int) {
 }
 //countUpToTwenty(from: 1)
 
+func countUp(to target: Int, startingAt currentNum: Int) {
+    guard currentNum <= target  else { return }
+    print(currentNum)
+    countUp(to: target, startingAt: currentNum + 1)
+}
+//countUp(to: 15, startingAt: 11)
+
 func factorial(_ n: Int) -> Int {
     guard n > 1 else { return 1 }   //base case = 1
     print("n = \(n) and n-1 = \(n - 1)")
@@ -55,7 +62,7 @@ func dynamicFibonacci (_ n: Int) -> Int {   // 2. set up the func
     fibDict[n] = fibValue                                            //cache the values or results (memoization)
     return fibValue
 }
-dynamicFibonacci(25)// only run for 23 times
+//dynamicFibonacci(25)// only run for 23 times
 
  //-----------------------------------------------------------------------------------
 //                              RECURSION    EXERCISES
@@ -257,6 +264,7 @@ calculateFactorial(4); //returns 24
 calculateFactorial(7); //returns 5040
  
  //-----------------------------------------------------------------------------------
+ //https:www.geeksforgeeks.org/count-ways-reach-nth-stair-using-step-1-2-3
 Triple Step
 A child is running up a staircase with n steps and can hop either 1 step 2 steps or 3 steps at a time. Write a function called 'tripleStep', that takes in an argument n that represents the number of steps in the staircase, and returns a count of how many possible ways the child can run up the stairs.
 
@@ -265,6 +273,21 @@ tripleStep(4); //returns 7
 tripleStep(5); //returns 13
 tripleStep(10); //returns 274
 Source: CTCI
+ 
+*/
+
+func findStep (_ n: Int) -> Int {
+    if n == 1 || n == 0 {
+        return 1
+    }
+    else if n == 2 {
+        return 2
+    }
+    return findStep(n - 3) + findStep(n - 2) + findStep(n - 1)
+}
+findStep(9)
+
+/*
 
  //-----------------------------------------------------------------------------------
 Coin Combos
