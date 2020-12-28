@@ -93,7 +93,7 @@ allElements(in: [1,3,0,7,-13])
 
 Sample Input: ["Hi", "there", ",", " ", "user","!"]
 Sample Output: "Hi there, user!"
- */
+
 
 var outputStr = ""
 func concatenateAllElements (in wordArr: [String]) -> String {
@@ -106,8 +106,8 @@ func concatenateAllElements (in wordArr: [String]) -> String {
     return outputStr
 }
 concatenateAllElements(in: ["Hi", "there", ",", " ", "user","!"])
-/*
-//--------------------------------------------------------------------------------------
+
+ //--------------------------------------------------------------------------------------
 4. Find the sum of all the numbers in an array
 
 Sample Input: [3,6,1,3,2]
@@ -129,13 +129,7 @@ Sample Input: [3,6,1,3,2,10]
 Sample Output: 18
 
 var sum = 0
-
 func sumOfEvenNums(_ numArr: [Int]) -> Int {
-//    for n in numArr {
-//        if n % 2 == 0 {
-//            sum += n
-//        }
-//    }
     guard !numArr.isEmpty else {
         return 0
     }
@@ -147,6 +141,14 @@ func sumOfEvenNums(_ numArr: [Int]) -> Int {
     return sum
 }
 sumOfEvenNums([3,6,1,3,2,10])
+ 
+func sumEvenRecursive(_ numArr: [Int]) -> Int {
+    guard !numArr.isEmpty else { return 0 }
+    print(numArr.first!)
+    return numArr.first! % 2 == 0 ? (numArr.first! + sumEvenRecursive(Array(numArr.dropFirst()))) : sumEvenRecursive(Array(numArr.dropFirst()))
+}
+sumEvenRecursive([3,4,6])
+ 
  //--------------------------------------------------------------------------------------
 
 6. Multiply two given Ints.  Do not use for/while loops or the * operator.
@@ -166,9 +168,16 @@ func multiplyTwoNumbers(_ num1: Int,_ num2: Int) -> Int {
     return multiplySum
 }
 multiplyTwoNumbers(5, 6)
+*/
+func recursiveSumMultiplyNumbers (_ numX: Int, _ numY: Int) -> Int {
+    guard numX > 0 && numY >= 1 else { return 0 }
+    return numX + recursiveSumMultiplyNumbers(numX, numY - 1)
+}
+recursiveSumMultiplyNumbers(3, 5)
+ 
  //--------------------------------------------------------------------------------------
 
-
+/*
 7. Write a recursive function pow that takes two numbers x and y as input and returns x to the power y.  Do not use for/while loops
 Sample Input: 3 ^ 4
 Sample Output: 81
@@ -189,6 +198,14 @@ func powerNumbers(_ numX: Int, _ numY: Int) -> Int {
 }
 powerNumbers(-3, 4)
 
+//5^4 = 5 * 5 * 5 * 5
+func recursivePower(_ numN: Int, _ numPowerM: Int) -> Int {
+    guard numN != 0 && numPowerM >= 1 else { return 1 }
+    return numN * recursivePower(numN, numPowerM - 1)
+}
+recursivePower(5, 3)
+ 
+ 
 //-----------------------------------------------------------------------------------
 //       MORE RECURSION EXERCISES from https://github.com/joinpursuit/Pursuit-Core-DSA
 //-----------------------------------------------------------------------------------
@@ -197,7 +214,6 @@ Write a function called multArr that takes in an array of numbers as an argument
 
 multArr([2, 3, 5]); // returns 30
 multArr([5, 5, 1, 2]); //returns 50
-*/
 
 var resultSum = 1
 
@@ -212,7 +228,7 @@ func sumInNumArr (_ numArr: [Int]) -> Int {
 }
 //sumInNumArr([2,3,5])
 //sumInNumArr([5, 5, 1, 2])
-/*
+
  //-----------------------------------------------------------------------------------
 Concatenate array
 Write a function called concatArr that takes in an array of strings as an argument and recursively concatenates the strings together into a single string, with spaces between each original string.
@@ -244,7 +260,6 @@ func numbersInRange (between lowNum: Int, to highNum: Int) -> [Int] {
     return numArr
 }
 //numbersInRange(between: 2, to: 10)
-print(numbersInRange(between: -17, to: -20))
 
  //-----------------------------------------------------------------------------------
 /*
@@ -286,7 +301,6 @@ func findStep (_ n: Int) -> Int {
     return findStep(n - 3) + findStep(n - 2) + findStep(n - 1)
 }
 findStep(9)
-
 /*
 
  //-----------------------------------------------------------------------------------
