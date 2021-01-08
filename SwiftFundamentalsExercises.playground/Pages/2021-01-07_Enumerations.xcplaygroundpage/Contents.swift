@@ -132,37 +132,26 @@ let anotherDay = Day.wednesday
 anotherDay.isWeekday() // true
 */
 
-enum Day {
-    case monday(String)
-    case tuesday(String)
-    case wednesday(String)
-    case thursday(String)
-    case friday(String)
-    case saturday(String)
-    case sunday(String)
+enum Day: String {
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case saturday
+    case sunday
     
-    func isWeekday() -> Bool {
+    func isItWeekday() -> Bool {
         switch self {
-        case .monday(_):
+        case .monday, .tuesday, .wednesday, .thursday, .friday:
             return true
-        case .tuesday(_):
-            return true
-        case .wednesday(_):
-            return true
-        case .thursday(_):
-            return true
-        case .friday(_):
-            return true
-        case .saturday(_):
-            return false
-        case .sunday(_):
+        case .saturday, .sunday:
             return false
         }
     }
 }
+let today = Day.friday
+print(today.isItWeekday())
 
-let today = Day.saturday("Saturday")
-print(today.isWeekday())
-
-let tomorrow = Day.friday("Friday")
-print(tomorrow.isWeekday())
+let tomorrow = Day.saturday
+print(tomorrow.isItWeekday())
