@@ -155,3 +155,59 @@ print(today.isItWeekday())
 
 let tomorrow = Day.saturday
 print(tomorrow.isItWeekday())
+//  ===================================================================================
+/*
+Question Five
+Define an enumeration named HandShape with three members: .rock, .paper, .scissors. Define an enumeration named MatchResult with three members: .win, .draw, .lose.
+
+Write a function called matchResult(fromPlayerOneShape:andPlayerTwoShape:) that takes two HandShapes and returns a MatchResult. It should return the outcome for the first player (the one with the first hand shape).
+
+Rock beats scissors, paper beats rock, scissor beats paper
+
+let games: [(playerOne: HandShape, playerTwo: HandShape)] = [(.rock, .paper),
+                                           (.paper, .paper),
+                                           (.scissors, .rock),
+                                           (.rock, .scissors)]
+// expected output:
+ lose
+ draw
+ lose
+ win
+*/
+
+enum HandShape {
+    case rock, paper, scissors
+}
+
+enum MatchResult {
+    case win, draw, lose
+}
+
+func matchResult(fromPlayerOne player1: HandShape, fromPlayerTwo player2: HandShape ) -> MatchResult {
+    
+    if player1 == player2 {
+        return .draw
+        
+    }
+    
+    if player1 == .rock && player2 == .scissors ||
+        player1 == .paper && player2 == .rock ||
+        player1 == .scissors && player2 == .paper {
+        return .win
+    }
+    return .lose
+}
+
+let games: [(playerOne: HandShape, playerTwo: HandShape)] = [
+                (.rock, .paper),
+                (.paper, .paper),
+                (.scissors, .rock),
+                (.rock, .scissors)]
+
+for game in games {
+    
+    let result = matchResult(fromPlayerOne: game.playerOne, fromPlayerTwo: game.playerTwo)
+    print(result)
+}
+
+
