@@ -114,4 +114,55 @@ let coinArr: [(Int, Coin)] = [(10, .penny),
                               (20, .penny),
                               (3, .dime),
                               (7, .quarter)]
+
 let total = getTotalValue(from: coinArr)
+
+print(total)
+//  ===================================================================================
+/*
+Question Four
+Write an enum called Day to represent the days of the week with a raw value of type String. Write a method inside Day that returns whether or not it is a weekday (Monday - Friday).
+
+// Sample expected outputs
+
+let day = Day.saturday
+day.isWeekday() // false
+
+let anotherDay = Day.wednesday
+anotherDay.isWeekday() // true
+*/
+
+enum Day {
+    case monday(String)
+    case tuesday(String)
+    case wednesday(String)
+    case thursday(String)
+    case friday(String)
+    case saturday(String)
+    case sunday(String)
+    
+    func isWeekday() -> Bool {
+        switch self {
+        case .monday(_):
+            return true
+        case .tuesday(_):
+            return true
+        case .wednesday(_):
+            return true
+        case .thursday(_):
+            return true
+        case .friday(_):
+            return true
+        case .saturday(_):
+            return false
+        case .sunday(_):
+            return false
+        }
+    }
+}
+
+let today = Day.saturday("Saturday")
+print(today.isWeekday())
+
+let tomorrow = Day.friday("Friday")
+print(tomorrow.isWeekday())
