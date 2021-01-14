@@ -187,3 +187,38 @@ for dictArr in colorDictArray {
 print(colors.count)
 print(colors.first?.red ?? 0.0) // 1.0
 print(colors.last?.blue ?? 0.0) // 0.9
+
+/*
+ ======================================================================================
+ 
+ Question 8
+ Create a struct called Movie that has properties for name (String), year (Int), genre (String), cast ([String]), and description (String) which is a property of the CustomStringConvertible protocol. Create an instance of your Movie class.
+
+ // Sample Input:
+ let theBanker = Movie(name: "The Banker", year: 2020, genre: "Drama", cast: ["Anthony Markie", "Samuel L. Jackson", "Nicholas Hoult", "Nia Long"])
+
+ // Output:
+ print(theBanker)
+ The Banker is a Drama released in 2020 with the following cast members: Anthony Markie, Samuel L. Jackson, Nicholas Hoult and Nia Long
+ */
+struct Movie: CustomStringConvertible {
+    var name: String
+    var year: Int
+    var genre: String
+    var cast: [String]
+    
+    var description: String {
+        
+        var castMembers = String()
+        for (index, actor) in cast.enumerated() {
+            var endSeparator = index == cast.count - 1 ? "" : ", "
+            if index == cast.count - 2 {
+                endSeparator = " and "}
+        castMembers += actor + endSeparator
+            }
+        return "\(name) is a \(genre) released in \(year) \n with the following cast members:  \(castMembers)"
+    }
+}
+
+let clearAndPresentDanger = Movie(name: "Clear and Present Danger", year: 1994, genre: "political action-thriller", cast: ["Harrison Ford", "Willem Dafoe", "Joaquim de Almeida", "James Earl Jones", "Anne Archer"])
+print(clearAndPresentDanger)
